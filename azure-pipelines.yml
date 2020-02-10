@@ -25,6 +25,12 @@ steps:
     ls $(System.DefaultWorkingDirectory)
   displayName: 'list path'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
