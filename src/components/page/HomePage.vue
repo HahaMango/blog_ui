@@ -1,7 +1,7 @@
 <template>
     <div id="home-background">
         <div id="home-title" class="row">
-            <span class="col-sm-3">Chiva studio</span>
+            <span class="col-sm-3">Chiva</span>
             <div class="col-sm-3"></div>
             <div class="col-sm-2"></div>
             <div class="col-sm-2"></div>
