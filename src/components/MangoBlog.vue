@@ -46,7 +46,7 @@ export default {
 }
 
 .context{
-  width: 900px;
+  /*width: 900px;*/
   margin: 0px auto 0px auto;
 }
 

@@ -1,29 +1,35 @@
 <template>
-    <div id="home-background">
-        <div id="home-title" class="row">
-            <span class="col-sm-3">Chiva</span>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2">
-                <button id="profile-button" class="btn btn-light" v-on:click="ProfileClick">
-                    <ion-icon name="bookmark"></ion-icon>Profile
-                </button>
+    <div>
+        <div id="home-background">
+            <div class="container">
+                <div id="home-title" class="row">
+                    <span class="col-md-10 col-12">Chiva Studio</span>            
+                    <div class="col-md-2 col-12">
+                        <button id="profile-button" class="btn btn-light" v-on:click="ProfileClick">
+                            <ion-icon name="bookmark"></ion-icon>Profile
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="home-context">
-            <articleItem 
-                v-for="article in articles" 
-                :key="article.Href"
-                :pagetitle="article.Title"
-                :describe="article.Describe"
-                :href="article.Href"
-                :read="article.Read"
-                :like="article.Like"
-                :comment="article.Comment"
-                />
+        <div class="container" id="home-context">
+            <div class="row">
+                <div class="col">
+                    <articleItem 
+                        v-for="article in articles" 
+                        :key="article.Href"
+                        :pagetitle="article.Title"
+                        :describe="article.Describe"
+                        :href="article.Href"
+                        :read="article.Read"
+                        :like="article.Like"
+                        :comment="article.Comment"
+                        />
+                </div>
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -38,6 +44,8 @@ export default {
     data(){
         return{
             articles:[
+                new ArticleItem('sdfw','sdfw','3',10,0,1,'dfww',new Date()),
+                new ArticleItem('sdfwsxdf','12dsdfws','3',145,0,1,'dfww',new Date()),
             ]
         }
     },
@@ -64,21 +72,22 @@ export default {
 <style>
 
 #home-background{
-    margin-top: 50px;
-    width: 100%;
+    /*padding-top: 3.125em;*/
+    background-color: rgb(49, 49, 49);
 }
 
 #home-title{
-    margin-bottom: 50px;
-    margin-left: 10px;
+    padding-top: 3.125em;
+    padding-bottom: 3.125em;
+    
 }
 
 #home-title span{
-    font-size: 60px;
-
+    font-size: 3.75em;
+    color: rgb(235, 235, 235);
 }
 
 #profile-button{
-    margin-top: 40px;
+    margin-top: 2.5em;
 }
 </style>
