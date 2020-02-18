@@ -18,23 +18,23 @@
           <div class="card" style="width: 100%;margin-left:auto;margin-right:auto;margin-top:5px;">
             <img src="img/profile.jpg" class="card-img-top" alt="..." />
             <div class="card-body" style="padding-right:0px;padding-left:15px;">
-              <h3 class="card-title text-monospace">Chiva Chen</h3>
-              <p class="card-text text-monospace font-italic">Software Developers</p>
-              <p class="card-text text-monospace font-italic">
+              <h3 class="card-title text-monospace"><b>Chiva Chen</b></h3>
+              <p class="card-text text-monospace">Software Developers</p>
+              <p class="card-text text-monospace">
                 <ion-icon name="construct"></ion-icon>:ASP.NET Core,Web App.
               </p>
-              <p class="card-text text-monospace font-italic">
+              <p class="card-text text-monospace">
                 <ion-icon name="locate"></ion-icon>:Guangzhou China.
               </p>
-              <p class="card-text text-monospace font-italic">
+              <p class="card-text text-monospace">
                 <ion-icon name="logo-github"></ion-icon>:
                 <a href="https://github.com/HahaMango" target="_blank">HahaMango</a>
               </p>
-              <p class="card-text text-monospace font-italic">
+              <p class="card-text text-monospace">
                   <ion-icon name="logo-instagram"></ion-icon>:
                   <a href="https://www.instagram.com/chiva_mango/" target="_blank">Chiva Chen</a>
               </p>
-              <p class="card-text text-monospace font-italic">
+              <p class="card-text text-monospace">
                 <ion-icon name="mail"></ion-icon>:
                 <a href="mailto:q932104843@outlook.com">q932104843@outlook.com</a>
               </p>
@@ -70,26 +70,6 @@ export default {
   data() {
     return {
       articles: [
-        new ArticleItem(
-          "sdfw",
-          "今天跟大家来介绍一下一个OPC UA协议的开源库，我们使用的现场设备为西门子的S7-1500 CPU，西门子的S7-1500在V2.1版本后就直接可以作为OPC UA的服务器来供其他客户端访问。所以用OPC协议来进行数据采集就是最好的方式。",
-          "3",
-          10,
-          0,
-          1,
-          "dfww",
-          new Date()
-        ),
-        new ArticleItem(
-          "sdfwsxdf",
-          "A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options. If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar functionality to those components is available as modifier classes for cards.",
-          "3",
-          145,
-          0,
-          1,
-          "dfww",
-          new Date()
-        )
       ]
     };
   },
