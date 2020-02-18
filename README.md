@@ -1,5 +1,7 @@
 # API定义
 
+[![Build Status](https://dev.azure.com/q932104843/blog_ui/_apis/build/status/HahaMango.blog_ui?branchName=master)](https://dev.azure.com/q932104843/blog_ui/_build/latest?definitionId=2&branchName=master)
+
 |API|请求方法|描述|
 |:--:|:--:|:--:|
 |api/articles|POST|添加文章|

@@ -4,7 +4,7 @@
       <a :href="href">
         <div>
           <h2>{{pagetitle}}</h2>
-          <span style="display:block;margin-bottom:10px;">{{describe}}</span>
+          <span class="article-item-desc"><p>{{describe}}</p></span>
           <articleInfo class="article-item-info" :read="read" :like="like" :comment="comment"/>
         </div>
       </a>
@@ -28,15 +28,15 @@ export default {
 <style>
 
 .article-item{
-    margin: 5px 0px 5px 0px;
-    padding: 23px 15px 23px 15px;
+    margin: 0.313em 0em 0.313em 0em;
+    padding: 1.44em 0.938em 1.44em 0.938em;
 }
 
 .article-item-hold{
-    margin: 5px 0px 5px 0px;
-    padding: 23px 15px 23px 15px;
+    margin: 0.313em 0em 0.313em 0em;
+    padding: 1.44em 0.938em 1.44em 0.938em;
     background-color: rgb(245, 245, 245);
-    border-radius: 5px;
+    border-radius: 0.313em;
 }
 
 .article-item-info {
@@ -56,6 +56,15 @@ export default {
 .article-item-hold a:hover{
     color: black;
     text-decoration:none;
+}
+
+.item-border .article-item-desc{
+  display:block;
+  margin-bottom:0.625em;
+}
+
+.item-border span p{
+  line-height:1.87em;
 }
 
 </style>
