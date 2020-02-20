@@ -20,6 +20,11 @@
                     <p class="col-md-10 col-12">{{date}}</p>
                     <articleInfo class="col-md-2 col-12" :read="read" :like="like" :comment="comment"/>                    
                 </div>
+                <div class="d-flex justify-content-center col-12" v-if="content == null">
+                    <div class="spinner-border" role="status" style="margin-top:2em;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
                 <div class="col-12" id="editor">
                 </div>
             </div>
@@ -36,13 +41,17 @@
                     :username="c.UserName"
                     :comment="c.Comment"
                     :date="c.Date"/>
+                <div class="d-flex justify-content-center col-12" v-if="spinnersDisplayControl">
+                    <div class="spinner-border" role="status" style="margin-top:2em;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
                 <div class="text-center col-12" style="margin-top:20px;">
                     <button id="more-comment" v-on:click="GetMoreComment">更多 <ion-icon name="arrow-dropdown"></ion-icon></button>
                 </div>
             </div>
             <div class="row reply-div">
                 <div class="col-md-6 col-12">
-
                 </div>
                 <div class="col-md-6 col-12">
                     <comment id="comment-test" v-on:CommentClick="commentClick"/>
@@ -83,7 +92,8 @@ export default {
             comment:0,
             commentItems:[],
             replyText :"",
-            currentDate:new Date()
+            currentDate:new Date(),
+            spinnersDisplayControl:false
         }
     },
     created:function(){  
@@ -156,10 +166,12 @@ export default {
             });
         },
         GetMoreComment:function(){
+            p.spinnersDisplayControl = true;
             var cl = p.commentItems.length-1;
             p.currentDate = p.commentItems[cl].Date;
             Http.GetComments(p.id,p.currentDate,10,function(comments) {
                 for(var i =0;i<comments.length;i++){
+                    p.spinnersDisplayControl = false;
                     p.commentItems.push(comments[i]);
                 }
             });
