@@ -37,6 +37,7 @@ export default {
     padding: 1.44em 0.938em 1.44em 0.938em;
     background-color: rgb(245, 245, 245);
     border-radius: 0.313em;
+    box-shadow:1px 1px 18px 3px rgb(197, 197, 197);
 }
 
 .article-item-info {

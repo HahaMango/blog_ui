@@ -1,45 +1,64 @@
 <template>
     <div id="article-background">
         <div id="article-head">
-            <span>
-                <a href="#home">
-                    <span>
-                        <ion-icon name="arrow-round-back"></ion-icon>
-                    </span>
-                </a>
-                <span>Chiva</span>
+            <div class="container">
+                <span>
+                    <a href="#home">
+                        <span>
+                            <ion-icon name="arrow-round-back"></ion-icon>
+                        </span>
+                    </a>
+                <span>Chiva Studio</span>
             </span>
-        </div>
-        <hr/>
-        <div id="article-title">
-            <h2>{{title}}</h2>
-            <div id="article-subtitle">
-                <articleInfo style="float:right;" :read="read" :like="like" :comment="comment"/>
-                <p>{{date}}</p>
-            </div>
-            <div id="editor">
-
             </div>
         </div>
         <hr/>
-        <div>
-            <div v-if="commentItems.length != 0">
-                <h3>评论</h3>
+        <div id="article-title" class="container">
+            <div class="row">
+                <h2 class="col-12">{{title}}</h2>
+                <div class="row col-12" id="article-subtitle">
+                    <p class="col-md-10 col-12">{{date}}</p>
+                    <articleInfo class="col-md-2 col-12" :read="read" :like="like" :comment="comment"/>                    
+                </div>
+                <div class="d-flex justify-content-center col-12" v-if="content == null">
+                    <div class="spinner-border" role="status" style="margin-top:2em;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="col-12" id="editor">
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="container">
+            <div class="row" v-if="commentItems.length != 0">
+                <h3 class="col-12">评论</h3>
                 <commentItem 
                     v-for="c in commentItems"
-                    class="commentitem-test" 
+                    class="commentitem-test col-12" 
                     :key="c.Id"
                     v-on:reply="ClickEvent" 
                     :username="c.UserName"
                     :comment="c.Comment"
                     :date="c.Date"/>
-                <div class="text-center" style="margin-top:20px;">
+                <div class="d-flex justify-content-center col-12" v-if="spinnersDisplayControl">
+                    <div class="spinner-border" role="status" style="margin-top:2em;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="text-center col-12" style="margin-top:20px;">
                     <button id="more-comment" v-on:click="GetMoreComment">更多 <ion-icon name="arrow-dropdown"></ion-icon></button>
                 </div>
             </div>
-            <comment id="comment-test" v-on:CommentClick="commentClick"/>
+            <div class="row reply-div">
+                <div class="col-md-6 col-12">
+                </div>
+                <div class="col-md-6 col-12">
+                    <comment id="comment-test" v-on:CommentClick="commentClick"/>
+                </div>                
+            </div>
         </div>
-        <div id="like-div">
+        <div id="like-div" class="d-none d-sm-block">
             <button class="btn btn-light" id="to-top-button" v-on:click="ToTopButton"><ion-icon name="arrow-round-up"></ion-icon></button>            
             <button class="btn btn-light" id="like-button" v-on:click="LikeButton"><ion-icon name="heart-empty"></ion-icon></button>
         </div>
@@ -73,7 +92,8 @@ export default {
             comment:0,
             commentItems:[],
             replyText :"",
-            currentDate:new Date()
+            currentDate:new Date(),
+            spinnersDisplayControl:false
         }
     },
     created:function(){  
@@ -146,10 +166,12 @@ export default {
             });
         },
         GetMoreComment:function(){
+            p.spinnersDisplayControl = true;
             var cl = p.commentItems.length-1;
             p.currentDate = p.commentItems[cl].Date;
             Http.GetComments(p.id,p.currentDate,10,function(comments) {
                 for(var i =0;i<comments.length;i++){
+                    p.spinnersDisplayControl = false;
                     p.commentItems.push(comments[i]);
                 }
             });
@@ -164,64 +186,63 @@ export default {
 </script>
 
 <style>
+.reply-div{
+    margin-top: 1em;
+}
 
 #more-comment{
     background-color: rgb(243, 243, 243);
     border-color: transparent;
-    border-radius: 10px;
-    width: 300px;
+    border-radius: 0.625em;
+    width: 18.75em;
 }
 
-#article-background{
-    width: 100%;
-    margin-top: 40px;
+#article-head{
+    background-color: rgb(49, 49, 49);
+    padding-top: 2.5em;
 }
 
 #article-head span{
-    font-size: 30px;
+    font-size: 1.475em;
+    color: rgb(221, 221, 221);
 }
 
 #article-head a{
-    color: gray;
+    color: rgb(221, 221, 221);
 }
 
 #article-head a:hover{
-    color: black;
+    color: rgb(139, 139, 139);
 }
 
 #article-title{
-    margin-top: 10px;
+    margin-top: 0.625em;
 }
 
 #article-subtitle{
-    margin-top: 20px;
+    margin-top: 1.25em;
     color: gray;
 }
 
-#editor{
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
 #comment-test{
-    width: 500px;
-    margin-top: 10px;
-    margin-left: 370px;
+    width: 100%;
+    /*margin-top: 10px;*/
+    /*margin-left: 370px;*/
 }
 
 .commentitem-test{
-    width: 850px;
-    margin: 10px auto 0px auto;
+    width: 90%;
+    margin: 0.625em auto 0px auto;
     color: gray;
 }
 
 #to-top-button{
-    margin: 2px 0px 2px 0px;
-    font-size: 24px;
+    margin: 0.125em 0px 0.125em 0px;
+    font-size: 1.5em;
 }
 
 #like-button{
-    margin: 2px 0px 2px 0px;
-    font-size: 24px;
+    margin: 0.125em 0px 0.125em 0px;
+    font-size: 1.5em;
 }
 </style>

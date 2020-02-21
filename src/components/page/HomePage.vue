@@ -41,7 +41,12 @@
             </div>
           </div>
         </div>
-        <div class="col-md-9 col-12">
+        <div class="col-md-9 col-12" id="loading-articles">
+          <div class="d-flex justify-content-center" v-if="articles.length == 0">
+            <div class="spinner-border" role="status" style="margin-top:2em;">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
           <articleItem
             v-for="article in articles"
             :key="article.Href"
