@@ -10,7 +10,8 @@
     </div>
     <div>
       <div class="blog-footer">
-        <span style="margin-left:40px;"><a href="https://github.com/HahaMango/Mango-Blog-" target="_blank"><ion-icon name="logo-github"></ion-icon></a><i>Power By .Net Core</i></span>
+        <span style="margin-left:40px;"><i>Power By .Net Core <a href="https://github.com/HahaMango/Mango-Blog-" target="_blank"><ion-icon name="logo-github"></ion-icon></a> /</i></span>
+        <span><i>and Vue.js </i><a href="https://github.com/HahaMango/blog_ui" target="_blank"><ion-icon name="logo-github"></ion-icon></a></span>
       </div>
     </div>
   </div>
@@ -51,7 +52,7 @@ export default {
 }
 
 .blog-footer{
-  width: 240px;
+  width: 335px;
   margin: 0px auto 0px auto;
   color: gray;
   padding-top: 10px;

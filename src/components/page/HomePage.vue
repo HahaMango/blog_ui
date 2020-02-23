@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-md-3 col-0 d-none d-sm-block">
           <div class="card" style="width: 100%;margin-left:auto;margin-right:auto;margin-top:5px;">
-            <img src="img/profile.jpg" class="card-img-top" alt="..." />
+            <img src="img/19171808.jpg" class="card-img-top" alt="..." />
             <div class="card-body" style="padding-right:0px;padding-left:15px;">
               <h3 class="card-title text-monospace"><b>Chiva Chen</b></h3>
               <p class="card-text text-monospace">Software Developers</p>
