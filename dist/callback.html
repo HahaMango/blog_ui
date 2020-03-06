@@ -5,7 +5,10 @@
     <title></title>
 </head>
 <body>
+    <!--
     <script src="./libs/oidc-client.min.js"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/oidc-client@1.10.1/dist/oidc-client.min.js"></script>
     <script>
         new Oidc.UserManager({userStore: new Oidc.WebStorageStateStore({ store: window.sessionStorage })}).signinRedirectCallback().then(function() {
             window.location = "/#admin";
