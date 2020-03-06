@@ -12,6 +12,7 @@ export default{
             response_type: "id_token token",
             scope: "openid profile mangoblogApi mango.profile",
             post_logout_redirect_uri: "https://www.hahamango.cn",
+            acr_values: "idp:local",
             userStore: new Oidc.WebStorageStateStore({ store: window.sessionStorage })
         };
         LoginServer = new Oidc.UserManager(config);
