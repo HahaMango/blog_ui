@@ -136,8 +136,6 @@ export default {
 </script>
 
 <style>
-#editor-div {
-}
 
 #editor-head {
   width: 155px;
