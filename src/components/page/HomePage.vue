@@ -56,6 +56,7 @@
             :read="article.Read"
             :like="article.Like"
             :comment="article.Comment"
+            :isAdmin="isAdmin"
           />
         </div>
       </div>
@@ -68,6 +69,7 @@
 import articleItem from "../ArticleItem.vue";
 import ArticleItem from "../../ArticleItem.js";
 import Http from "../../Communication.js";
+import ls from "../../LoginServer.js"
 
 let p = null;
 
@@ -75,11 +77,31 @@ export default {
   data() {
     return {
       articles: [
-      ]
+        
+      ],
+      currentUser:null,
+      isAdmin:false
     };
   },
   created: function() {
     p = this;
+
+    var loginserver = ls.GetLoginServer();
+    if(loginserver != null){
+      loginserver.getUser().then(function(user){
+        if(user){
+          p.currentUser = user;
+          if(p.currentUser.profile.role != undefined){
+            for(var i =0;i< p.currentUser.profile.role.length;i++){
+              if(p.currentUser.profile.role[i] == "ADMIN"){
+                p.isAdmin = true;
+              }
+            }
+          }
+        }
+      });
+    }
+    
     Http.GetArticles(0, 10, function(articles) {
       for (var i = 0; i < articles.length; i++) {
         p.articles.push(articles[i]);

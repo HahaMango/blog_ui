@@ -82,10 +82,13 @@ export default {
     loginServer.getUser().then(function(user) {
       if (user) {
         currentUser = user;
-        if(currentUser.profile.role != undefined && currentUser.profile.role == "ADMIN"){
-          p.isAuthentication = true;
-          console.log("用户验证通过");
-          
+        if(currentUser.profile.role != undefined){
+          for(var i =0;i< p.currentUser.profile.role.length;i++){
+            if(p.currentUser.profile.role[i] == "ADMIN"){
+              p.isAuthentication = true;
+              console.log("用户验证通过");
+            }
+          }
         }else{
           window.location.href = "/";
         }

@@ -40,6 +40,8 @@ export default{
         }
         xmlhttp.send();
     },
+    DeleteArticle:function(articleId,success){
+    },
     GetArticleContent:function(id,success){
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET",url + "articles/content/"+id,true);

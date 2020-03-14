@@ -8,7 +8,7 @@
               <button class="btn btn-light" style="float:right;margin-left:10px" v-on:click="DeleteArticleEvent($event)">
                 <ion-icon name="trash"></ion-icon>
               </button>
-              <button class="btn btn-light" style="float:right;">
+              <button class="btn btn-light" style="float:right;" v-on:click="EditArticleEvent($event)">
                 <ion-icon name="settings"></ion-icon>
               </button>
             </span>
@@ -23,6 +23,7 @@
 
 <script>
 import articleInfo from './ArticleInfo.vue';
+import cm from '../Communication.js'
 
 export default {
     props:["pagetitle","describe","href","read","like","comment","isAdmin"],
@@ -31,12 +32,19 @@ export default {
     },
     methods:{
       DeleteArticleEvent:function(e){
-        alert("delete");
+        var id = this.href;
+        id = id.slice(8,id.length);
+        cm.DeleteArticle(id,function(){
+          console.log("删除文章成功");
+          
+        });
         e.stopPropagation();
         e.preventDefault();
       },
       EditArticleEvent:function(e){
-        alert("edit");
+        var id = this.href;
+        id = id.slice(8,id.length);
+        window.location = "#admin"+id;
         e.stopPropagation();
         e.preventDefault();
       }
