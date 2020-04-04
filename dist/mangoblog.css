@@ -50,6 +50,9 @@
 #profile-button {
   margin-top: 2.5em;
 }
+#logout-button{
+  margin-top: 1.2em;
+}
 
 
 #comment-userinfo{
@@ -180,3 +183,5 @@
     outline-style: none;
     border-color: #818181;
 }
+
+/*# sourceMappingURL=mangoblog.css.map*/

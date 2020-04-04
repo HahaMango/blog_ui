@@ -5,7 +5,7 @@
       <div v-if="hash.search('#article') >= 0">
         <articlePage/>
       </div>
-      <adminPage v-if="hash.search('#admin') >= 0"/>
+      <authPage v-if="hash.search('#auth') >= 0"/>
       <profilePage v-if="hash == '#profile'"/>
     </div>
     <div>
@@ -28,6 +28,7 @@ import homePage from "./page/HomePage.vue";
 import articlePage from "./page/ArticlePage.vue";
 import adminPage from './page/AdminPage.vue';
 import profilePage from './page/ProfilePage.vue'
+import authPage from './page/AuthPage.vue'
 
 export default {
   props: ["hash"],
@@ -35,7 +36,8 @@ export default {
     homePage,
     articlePage,
     adminPage,
-    profilePage
+    profilePage,
+    authPage
   }
 };
 </script>

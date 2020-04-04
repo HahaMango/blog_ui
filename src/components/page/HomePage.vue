@@ -4,10 +4,17 @@
       <div class="container">
         <div id="home-title" class="row">
           <span class="col-md-10 col-12 text-monospace">Chiva Studio</span>
-          <div class="col-md-2 col-12 d-block d-sm-none">
+          <div class="col-12 d-block d-sm-none">
             <button id="profile-button" class="btn btn-light" v-on:click="ProfileClick">
               <ion-icon name="bookmark"></ion-icon>Profile
             </button>
+          </div>
+          <div class="col-12 col-md-2">
+            <div>
+              <button id="logout-button" class="btn btn-light" v-if="currentUser != null && isAdmin == true" v-on:click="LogoutClick">
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -114,6 +121,10 @@ export default {
   methods: {
     ProfileClick: function() {
       window.location.hash = "#profile";
+    },
+    LogoutClick:function(){
+      var loginserver = ls.GetLoginServer();
+      loginserver.signoutRedirect();
     }
   }
 };
@@ -137,5 +148,9 @@ export default {
 
 #profile-button {
   margin-top: 2.5em;
+}
+
+#logout-button{
+  margin-top: 1.2em;
 }
 </style>
