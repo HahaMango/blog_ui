@@ -1,13 +1,14 @@
 
 .article-item{
-    margin: 5px 0px 5px 0px;
-    padding: 23px 15px 23px 15px;
+    margin: 0.313em 0em 0.313em 0em;
+    padding: 1.44em 0.938em 1.44em 0.938em;
 }
 .article-item-hold{
-    margin: 5px 0px 5px 0px;
-    padding: 23px 15px 23px 15px;
+    margin: 0.313em 0em 0.313em 0em;
+    padding: 1.44em 0.938em 1.44em 0.938em;
     background-color: rgb(245, 245, 245);
-    border-radius: 5px;
+    border-radius: 0.313em;
+    box-shadow:0.063em 0.063em 1.125em 0.189em rgb(197, 197, 197);
 }
 .article-item-info {
     float:right;
@@ -24,27 +25,38 @@
     color: black;
     text-decoration:none;
 }
+.item-border .article-item-desc{
+  display:block;
+  margin-bottom:0.625em;
+}
+.item-border span p{
+  line-height:1.87em;
+}
 
 
 
-#home-background{
-    margin-top: 50px;
-    width: 100%;
+#home-background {
+  /*padding-top: 3.125em;*/
+  background-color: rgb(49, 49, 49);
 }
-#home-title{
-    margin-bottom: 50px;
-    margin-left: 10px;
+#home-title {
+  padding-top: 3.125em;
+  padding-bottom: 3.125em;
 }
-#home-title span{
-    font-size: 60px;
+#home-title span {
+  font-size: 3.75em;
+  color: rgb(235, 235, 235);
 }
-#profile-button{
-    margin-top: 40px;
+#profile-button {
+  margin-top: 2.5em;
+}
+#logout-button{
+  margin-top: 1.2em;
 }
 
 
 #comment-userinfo{
-    margin-top: 10px;
+    margin-top: 0.625em;
 }
 
 
@@ -63,58 +75,56 @@
 }
 
 
+.reply-div{
+    margin-top: 1em;
+}
 #more-comment{
     background-color: rgb(243, 243, 243);
     border-color: transparent;
-    border-radius: 10px;
-    width: 300px;
+    border-radius: 0.625em;
+    width: 18.75em;
 }
-#article-background{
-    width: 100%;
-    margin-top: 40px;
+#article-head{
+    background-color: rgb(49, 49, 49);
+    padding-top: 2.5em;
 }
 #article-head span{
-    font-size: 30px;
+    font-size: 1.475em;
+    color: rgb(221, 221, 221);
 }
 #article-head a{
-    color: gray;
+    color: rgb(221, 221, 221);
 }
 #article-head a:hover{
-    color: black;
+    color: rgb(139, 139, 139);
 }
 #article-title{
-    margin-top: 10px;
+    margin-top: 0.625em;
 }
 #article-subtitle{
-    margin-top: 20px;
+    margin-top: 1.25em;
     color: gray;
 }
-#editor{
-    padding-left: 0px;
-    padding-right: 0px;
-}
 #comment-test{
-    width: 500px;
-    margin-top: 10px;
-    margin-left: 370px;
+    width: 100%;
+    /*margin-top: 10px;*/
+    /*margin-left: 370px;*/
 }
 .commentitem-test{
-    width: 850px;
-    margin: 10px auto 0px auto;
+    width: 90%;
+    margin: 0.625em auto 0px auto;
     color: gray;
 }
 #to-top-button{
-    margin: 2px 0px 2px 0px;
-    font-size: 24px;
+    margin: 0.125em 0px 0.125em 0px;
+    font-size: 1.5em;
 }
 #like-button{
-    margin: 2px 0px 2px 0px;
-    font-size: 24px;
+    margin: 0.125em 0px 0.125em 0px;
+    font-size: 1.5em;
 }
 
 
-#editor-div {
-}
 #editor-head {
   width: 155px;
   margin: 0px auto 0px auto;
@@ -152,11 +162,11 @@
   width: 100%;
 }
 .context{
-  width: 900px;
+  /*width: 900px;*/
   margin: 0px auto 0px auto;
 }
 .blog-footer{
-  width: 240px;
+  width: 335px;
   margin: 0px auto 0px auto;
   color: gray;
   padding-top: 10px;
@@ -173,3 +183,5 @@
     outline-style: none;
     border-color: #818181;
 }
+
+/*# sourceMappingURL=mangoblog.css.map*/

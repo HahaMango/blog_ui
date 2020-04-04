@@ -3,7 +3,16 @@
     <div class="item-border">
       <a :href="href">
         <div>
-          <h2>{{pagetitle}}</h2>
+          <h2>{{pagetitle}}
+            <span v-if="isAdmin">
+              <button class="btn btn-light" style="float:right;margin-left:10px" v-on:click="DeleteArticleEvent($event)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+              <button class="btn btn-light" style="float:right;" v-on:click="EditArticleEvent($event)">
+                <ion-icon name="settings"></ion-icon>
+              </button>
+            </span>
+          </h2>
           <span class="article-item-desc"><p>{{describe}}</p></span>
           <articleInfo class="article-item-info" :read="read" :like="like" :comment="comment"/>
         </div>
@@ -14,13 +23,31 @@
 
 <script>
 import articleInfo from './ArticleInfo.vue';
+import cm from '../Communication.js'
 
 export default {
-    props:["pagetitle","describe","href","read","like","comment"],
+    props:["pagetitle","describe","href","read","like","comment","isAdmin"],
     components:{
         articleInfo
     },
     methods:{
+      DeleteArticleEvent:function(e){
+        var id = this.href;
+        id = id.slice(8,id.length);
+        cm.DeleteArticle(id,function(){
+          console.log("删除文章成功");
+          
+        });
+        e.stopPropagation();
+        e.preventDefault();
+      },
+      EditArticleEvent:function(e){
+        var id = this.href;
+        id = id.slice(8,id.length);
+        window.location = "#admin"+id;
+        e.stopPropagation();
+        e.preventDefault();
+      }
     }
 }
 </script>
@@ -37,7 +64,7 @@ export default {
     padding: 1.44em 0.938em 1.44em 0.938em;
     background-color: rgb(245, 245, 245);
     border-radius: 0.313em;
-    box-shadow:1px 1px 18px 3px rgb(197, 197, 197);
+    box-shadow:0.063em 0.063em 1.125em 0.189em rgb(197, 197, 197);
 }
 
 .article-item-info {

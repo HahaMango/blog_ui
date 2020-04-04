@@ -2,16 +2,20 @@
 
 [![Build Status](https://dev.azure.com/q932104843/blog_ui/_apis/build/status/HahaMango.blog_ui?branchName=master)](https://dev.azure.com/q932104843/blog_ui/_build/latest?definitionId=2&branchName=master)
 
-|API|请求方法|描述|
-|:--:|:--:|:--:|
-|api/articles|POST|添加文章|
-|api/articles/{start}/{count}|GET|分页查询|
-|api/articles|GET|全表查询|
-|api/articles/content/{id}|GET|查询文章内容|
-|api/articles/like/{id}|PUT|点赞操作|
-|api/articles/read/{id}|PUT|递增阅读数|
-|api/comments/article/{id}/{start}/{count}|GET|获取文章评论|
-|api/comments/article/{id}|POST|新建评论|
-|api/categories|POST|添加分类|
-|api/categories|GET|获取所有分类|
-|api/categories/articles/{id}|GET|获取文章分类|
+## 部分依赖
+
+博客文章使用的Markdown格式来编写和展示。
+
+[editor.md](https://github.com/pandao/editor.md)库提供对markdown的支持。
+
+[oidc-client](https://github.com/IdentityModel/oidc-client-js)库提供对博客后台API接口的OAuth2.0授权认证操作。
+
+## 界面截图
+
+博客主页：
+
+[![GNdJN8.md.png](https://s1.ax1x.com/2020/04/03/GNdJN8.md.png)](https://imgchr.com/i/GNdJN8)
+
+文章页面：
+
+[![GNdGAf.md.png](https://s1.ax1x.com/2020/04/03/GNdGAf.md.png)](https://imgchr.com/i/GNdGAf)
