@@ -3,18 +3,33 @@
     <div class="item-border">
       <a :href="href">
         <div>
-          <h2>{{pagetitle}}
-            <span v-if="isAdmin">
-              <button class="btn btn-light" style="float:right;margin-left:10px" v-on:click="DeleteArticleEvent($event)">
-                <ion-icon name="trash"></ion-icon>
-              </button>
-              <button class="btn btn-light" style="float:right;" v-on:click="EditArticleEvent($event)">
-                <ion-icon name="settings"></ion-icon>
-              </button>
-            </span>
-          </h2>
-          <span class="article-item-desc"><p>{{describe}}</p></span>
-          <articleInfo class="article-item-info" :read="read" :like="like" :comment="comment"/>
+          <div class=".container-fluid">
+            <div class="row">
+              <div class="col-12 col-md-10">
+                <h2 style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{pagetitle}}</h2>
+              </div>
+              <div class="col-2 col-md-1">
+                <button class="btn btn-danger" style="float:right;margin-left:10px" v-on:click="DeleteArticleEvent($event)">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+              </div>
+              <div class="col-2 col-md-1">
+                <button class="btn btn-warning" style="float:right;" v-on:click="EditArticleEvent($event)">
+                  <ion-icon name="settings"></ion-icon>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <span class="article-item-desc"><p>{{describe}}</p></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <articleInfo class="article-item-info" :read="read" :like="like" :comment="comment"/>
+              </div>
+            </div>
+          </div>
         </div>
       </a>
     </div>
@@ -36,7 +51,6 @@ export default {
         id = id.slice(8,id.length);
         cm.DeleteArticle(id,function(){
           console.log("删除文章成功");
-          
         });
         e.stopPropagation();
         e.preventDefault();
@@ -68,7 +82,7 @@ export default {
 }
 
 .article-item-info {
-    float:right;
+  float:right;
 }
 
 .article-item a {
